@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sweetbyte 💖</title>
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: default;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND IMAGES - MAXIMUM VISIBILITY */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: imageFade 15s infinite;
+            filter: brightness(1) contrast(1.1);
+        }
+
+        .bg-1 {
+            background-image: url('olbirat.png');
+            animation-delay: 0s;
+        }
+
+        .bg-2 {
+            background-image: url('oli.png');
+            animation-delay: 5s;
+        }
+
+        .bg-3 {
+            background-image: url('oliko.png');
+            animation-delay: 10s;
+        }
+
+        @keyframes imageFade {
+            0% { opacity: 0; }
+            15% { opacity: 0.95; }
+            30% { opacity: 1; }
+            40% { opacity: 1; }
+            50% { opacity: 0.95; }
+            65% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* MINIMAL OVERLAY - ALMOST INVISIBLE */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.15);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* CONTENT SECTIONS - SEMI-TRANSPARENT */
+        section {
+            position: relative;
+            padding: 80px 20px;
+            background: rgba(10, 10, 26, 0.4);
+            backdrop-filter: blur(5px);
+            margin: 2px 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(10, 10, 26, 0.3);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 40px;
+            background: rgba(10, 10, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: #ffd700;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #ffd700, #ff69b4, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* PHOTO UPLOAD SECTION */
+        .upload-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 20px;
+            border: 2px solid #ffd700;
+            text-align: center;
+        }
+
+        .upload-title {
+            color: #ffd700;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .upload-area {
+            border: 3px dashed #ff69b4;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            cursor: pointer;
+            background: rgba(255, 105, 180, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ffd700;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ffd700, #ff69b4, #8a2be2);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .timeline-content h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            perspective: 1000px;
+            height: 300px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-front {
+            background: rgba(138, 43, 226, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .card-back {
+            background: rgba(255, 215, 0, 0.3);
+            border: 2px solid #ffd700;
+            transform: rotateY(180deg);
+            backdrop-filter: blur(5px);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* DREAMS SECTION */
+        .dreams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dream-item {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .dream-item:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+        }
+
+        .dream-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .dream-text {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* FINAL SECTION */
+        .final-section {
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26, 10, 46, 0.4);
+        }
+
+        .special-button {
+            background: linear-gradient(45deg, #ffd700, #ff69b4);
+            border: none;
+            color: #1a0a2e;
+            padding: 20px 40px;
+            font-size: 1.6rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            border: 3px solid transparent;
+        }
+
+        .special-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* SPECIAL "MY" */
+        .special-my {
+            display: inline-block;
+            animation: myGlow 2s infinite alternate;
+            color: #ff69b4;
+            text-shadow: 
+                0 0 20px #ff69b4,
+                0 0 40px #ff69b4,
+                0 0 60px #ff69b4;
+            padding: 0 8px;
+            transform: scale(1.3);
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 5px;
+            font-size: 1.6rem;
+        }
+
+        @keyframes myGlow {
+            0% {
+                text-shadow: 
+                    0 0 15px #ff69b4,
+                    0 0 30px #ff69b4;
+                transform: scale(1.3) rotate(-3deg);
+            }
+            100% {
+                text-shadow: 
+                    0 0 35px #ff69b4,
+                    0 0 55px #ff69b4,
+                    0 0 75px #ff69b4;
+                transform: scale(1.4) rotate(3deg);
+            }
+        }
+
+        /* ADMIN PANEL */
+        .admin-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.95);
+            border: 3px solid #00ff00;
+            padding: 30px;
+            border-radius: 15px;
+            width: 500px;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .close-admin {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ff4444;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+            
+            .admin-panel {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+        }
+
+        /* UTILITY CLASSES */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .p-20 {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Images -->
+    <div class="background-container">
+        <div class="background-image bg-1"></div>
+        <div class="background-image bg-2"></div>
+        <div class="background-image bg-3"></div>
+    </div>
+
+    <!-- Minimal Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Happy Birthday Sweetbyte! 💖</h1>
+            <p>You're absolutely one in 8 billion! 😊✨</p>
+            <p class="subtitle">OLBIRAT GEREMEW</p>
+            <p style="font-size: 1.1rem; color: #e0e0ff; margin-top: 20px;">
+                From your friend Eban.D who thinks you're amazing
+            </p>
+        </div>
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <!-- Photo Upload Section -->
+    <section style="background: rgba(26, 10, 46, 0.4);">
+        <h2 class="section-title">Share Your Beautiful Moments 📸</h2>
+        <div class="upload-section">
+            <h3 class="upload-title">Upload Your Photos</h3>
+            <p style="color: #ffffff; font-size: 1.2rem; margin-bottom: 30px;">
+                Share your beautiful moments with me! Upload photos that show your amazing smile! ✨
+            </p>
+            
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">Click or drag photos here</div>
+                <div style="color: #ffd700; margin-top: 10px;">(Max 5MB per photo)</div>
+            </div>
+            
+            <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" onchange="handleFileUpload(event)">
+            
+            <div id="uploadedPhotos" class="mt-20">
+                <!-- Photos will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section style="background: rgba(22, 33, 62, 0.4);">
+        <h2 class="section-title">Our Story Together 💫</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>The First Hello 👋</h3>
+                    <p>When we first became friends, I knew you were someone special!</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Coding Adventures 💻</h3>
+                    <p>Your coding skills are incredible! You're so brilliant! ✨</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Nature Walks 🌿</h3>
+                    <p>I love how you find peace in nature. It's beautiful! 🌸</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section style="background: rgba(15, 52, 96, 0.4);">
+        <h2 class="section-title">Why You're Amazing 💝</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🖥️</div>
+                        <div class="card-title">Coding Queen</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Your coding skills are incredible! So talented and dedicated! 😊💻</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🥺</div>
+                        <div class="card-title">Glowing Eyes</div>
+                    </div>
+                    <div class="card-back">
+                        <p>You have beautiful Glowing eyes that shine bright! 😊</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🌿</div>
+                        <div class="card-title">Nature Lover</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Your connection with nature is beautiful and special! 🌸✨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dreams Section -->
+    <section style="background: rgba(10, 30, 60, 0.4);">
+        <h2 class="section-title">Your Bright Future 🌈</h2>
+        <div class="dreams-grid">
+            <div class="dream-item" onclick="showDreamMessage(this, 'You\'ll cruise in that black BMW! 🚗💨')">
+                <div class="dream-icon">🚗</div>
+                <div class="dream-text">Dream Car</div>
+            </div>
+            <div class="dream-item" onclick="showDreamMessage(this, 'Amazing adventures await! ✈️🌍')">
+                <div class="dream-icon">✈️</div>
+                <div class="dream-text">Travel Dreams</div>
+            </div>
+            <div class="dream-item" onclick="showDreamMessage(this, 'Your coding career will soar! 💻🚀')">
+                <div class="dream-icon">💻</div>
+                <div class="dream-text">Tech Success</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message Section -->
+    <section class="final-section">
+        <h2 class="section-title">Happy Birthday Sweetbyte! 🎉</h2>
+        <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 30px; line-height: 1.6;">
+            You're an incredible person and an amazing friend! I'm so grateful to have you in my life. 
+            Your kindness, intelligence, and beautiful spirit inspire everyone around you. 
+            Here's to another year of adventures and all your dreams coming true! 🌟💖
+        </p>
+        
+        <button class="special-button" onclick="showWish()" id="wishButton">
+            Show Eban's Wish For You 💫
+        </button>
+        
+        <div id="wishMessage" class="hidden" style="margin-top: 30px; padding: 30px; background: rgba(138, 43, 226, 0.3); border-radius: 15px; border: 2px solid #ffd700;">
+            <h3 style="color: #ffd700; margin-bottom: 20px; font-size: 1.8rem;">
+                Eban's Special Wish For You 💖
+            </h3>
+            <p style="font-size: 1.3rem; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+                Sweetbyte, you're absolutely extraordinary! May your code always work perfectly, 
+                may your Snickers never run out, and may that black BMW be yours soon! 🚗✨<br><br>
+                Happy Birthday to the most amazing person I know! 🎉💫<br><br>
+                <span style="color: #ff69b4; font-size: 1.5rem; font-weight: bold;">
+                    And now I have one special question for you... 
+                    Will you be <span class="special-my">MY</span> SweetByte? 💕✨
+                </span>
+            </p>
+            <div style="margin-top: 30px;">
+                <button onclick="answerYes()" 
+                        style="background: linear-gradient(45deg, #00ff00, #32cd32); 
+                               border: none; color: white; padding: 15px 30px; 
+                               font-size: 1.2rem; border-radius: 25px; cursor: pointer; 
+                               margin: 0 10px; font-weight: bold;">
+                    YES! 💚
+                </button>
+                <button onclick="answerNo()" 
+                        style="background: linear-gradient(45deg, #ff4444, #cc0000); 
+                               border: none; color: white; padding: 15px 30px; 
+                               font-size: 1.2rem; border-radius: 25px; cursor: pointer; 
+                               margin: 0 10px; font-weight: bold;">
+                    No 💔
+                </button>
+            </div>
+        </div>
+        
+        <div id="yesReaction" class="hidden" style="margin-top: 30px; padding: 30px; background: rgba(0, 255, 0, 0.15); border-radius: 15px; border: 2px solid #00ff00;">
+            <h3 style="color: #00ff00; margin-bottom: 15px; font-size: 2.2rem;">
+                YESSS! 🎉💚✨
+            </h3>
+            <p style="font-size: 1.4rem; line-height: 1.6;">
+                You just made me the happiest person alive! 😭💕 
+                Welcome to being my official SweetByte! 🌟💖
+            </p>
+        </div>
+        
+        <div id="noReaction" class="hidden" style="margin-top: 30px; padding: 30px; background: rgba(255, 0, 0, 0.15); border-radius: 15px; border: 2px solid #ff4444;">
+            <h3 style="color: #ff4444; margin-bottom: 15px; font-size: 1.8rem;">
+                Aww, that's okay! 💔
+            </h3>
+            <p style="font-size: 1.3rem; line-height: 1.6;">
+                I understand! 😭 No matter what, you'll always be an amazing friend! 
+                Happy Birthday, Olbirat! 🎂💖
+            </p>
+        </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel" style="max-height: 90vh; overflow-y: auto; width: 600px;">
+        <button class="close-admin" onclick="closeAdmin()">×</button>
+        <h3 style="color: #00ff00; margin-bottom: 20px; text-align: center;">Admin Panel 🔐</h3>
+        
+        <div id="responseStatus" style="padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; text-align: center; margin-bottom: 20px;">
+            ⏳ Waiting for response...
+        </div>
+        
+        <input type="password" id="adminKey" placeholder="Enter admin key" style="width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(255,255,255,0.1); border: 2px solid #ffd700; color: white; border-radius: 5px;">
+        <button onclick="checkResponse()" style="width: 100%; padding: 12px; background: linear-gradient(45deg, #ffd700, #ff69b4); border: none; color: #1a0a2e; font-weight: bold; border-radius: 5px; cursor: pointer; margin-bottom: 10px;">
+            Check Response
+        </button>
+        
+        <button id="deleteBtn" onclick="deleteResponses()" style="width: 100%; padding: 12px; background: linear-gradient(45deg, #ff4444, #cc0000); border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; display: none; margin-bottom: 15px;">
+            Delete All Responses 🗑️
+        </button>
+        
+        <div id="adminPhotos" style="display: none; margin-top: 20px;">
+            <h4 style="color: #ffd700; margin-bottom: 15px; text-align: center;">Uploaded Photos 📸</h4>
+            <div id="photoGallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;"></div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen Photo Viewer -->
+    <div id="photoViewer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 20000; justify-content: center; align-items: center; flex-direction: column;">
+        <button onclick="closePhotoViewer()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 40px; cursor: pointer;">×</button>
+        <img id="fullscreenPhoto" src="" style="max-width: 90%; max-height: 80%; object-fit: contain; border-radius: 10px;">
+        <a id="downloadLink" href="" download style="margin-top: 20px; padding: 15px 30px; background: linear-gradient(45deg, #00ff00, #32cd32); color: white; text-decoration: none; border-radius: 25px; font-weight: bold;">
+            Download Photo 📥
+        </a>
+    </div>
+
+    <script>
+        // Background images are now 95-100% visible!
+        
+        // Simple functions
+        function showWish() {
+            document.getElementById('wishButton').classList.add('hidden');
+            document.getElementById('wishMessage').classList.remove('hidden');
+        }
+        
+        function answerYes() {
+            document.getElementById('wishMessage').classList.add('hidden');
+            document.getElementById('yesReaction').classList.remove('hidden');
+            createConfetti();
+        }
+        
+        function answerNo() {
+            document.getElementById('wishMessage').classList.add('hidden');
+            document.getElementById('noReaction').classList.remove('hidden');
+        }
+        
+        function showDreamMessage(element, message) {
+            const original = element.querySelector('.dream-text').textContent;
+            element.querySelector('.dream-text').textContent = message;
+            setTimeout(() => {
+                element.querySelector('.dream-text').textContent = original;
+            }, 2000);
+        }
+        
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            const container = document.getElementById('uploadedPhotos');
+            
+            Array.from(files).forEach(file => {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File too large! Max 5MB.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.style.margin = '10px';
+                    div.style.display = 'inline-block';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" 
+                             style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid #ff69b4;">
+                    `;
+                    container.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        // Admin functions
+        let typedCode = '';
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT') return;
+            
+            typedCode += e.key;
+            if (typedCode.includes('433')) {
+                typedCode = '';
+                document.getElementById('adminPanel').style.display = 'block';
+            }
+            if (typedCode.length > 5) typedCode = typedCode.slice(-5);
+        });
+        
+        function closeAdmin() {
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+        
+        let currentAdminKey = '';
+        
+        async function checkResponse() {
+            const key = document.getElementById('adminKey').value;
+            const status = document.getElementById('responseStatus');
+            
+            try {
+                const response = await fetch('/api/check-response', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ adminKey: key })
+                });
+                
+                if (!response.ok) {
+                    status.innerHTML = '❌ Wrong key!';
+                    status.style.background = 'rgba(255, 0, 0, 0.15)';
+                    return;
+                }
+                
+                const data = await response.json();
+                currentAdminKey = key;
+                
+                if (data.hasAnswered) {
+                    const answer = data.response.answer;
+                    const time = new Date(data.response.timestamp).toLocaleString();
+                    if (answer === 'yes') {
+                        status.innerHTML = `🎉 SHE SAID YES! 💚✨<br><small>At: ${time}</small>`;
+                        status.style.background = 'rgba(0, 255, 0, 0.15)';
+                        status.style.border = '2px solid #00ff00';
+                    } else {
+                        status.innerHTML = `💔 She said no...<br><small>At: ${time}</small>`;
+                        status.style.background = 'rgba(255, 0, 0, 0.15)';
+                        status.style.border = '2px solid #ff4444';
+                    }
+                    document.getElementById('deleteBtn').style.display = 'block';
+                } else {
+                    status.innerHTML = '⏳ No response yet...';
+                    status.style.background = 'rgba(255, 215, 0, 0.1)';
+                }
+                
+                loadAdminPhotos(key);
+                
+            } catch (err) {
+                status.innerHTML = '❌ Error checking response';
+            }
+        }
+        
+        async function deleteResponses() {
+            if (!confirm('Are you sure you want to delete all responses?')) return;
+            
+            try {
+                const response = await fetch('/api/delete-responses', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ adminKey: currentAdminKey })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('responseStatus').innerHTML = '✅ Responses deleted!';
+                    document.getElementById('deleteBtn').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('responseStatus').innerHTML = '⏳ Waiting for response...';
+                    }, 2000);
+                }
+            } catch (err) {
+                alert('Error deleting responses');
+            }
+        }
+        
+        async function loadAdminPhotos(key) {
+            try {
+                const response = await fetch('/api/admin-get-photos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ adminKey: key })
+                });
+                
+                if (!response.ok) return;
+                
+                const data = await response.json();
+                const gallery = document.getElementById('photoGallery');
+                gallery.innerHTML = '';
+                
+                if (data.photos.length > 0) {
+                    document.getElementById('adminPhotos').style.display = 'block';
+                    data.photos.forEach(photo => {
+                        const div = document.createElement('div');
+                        div.innerHTML = `
+                            <img src="${photo.path}" 
+                                 style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid #ffd700;"
+                                 onclick="openPhotoViewer('${photo.path}', '${photo.original_name || photo.filename}')">
+                        `;
+                        gallery.appendChild(div);
+                    });
+                }
+            } catch (err) {
+                console.error('Error loading photos:', err);
+            }
+        }
+        
+        function openPhotoViewer(src, filename) {
+            document.getElementById('fullscreenPhoto').src = src;
+            document.getElementById('downloadLink').href = src;
+            document.getElementById('downloadLink').download = filename;
+            document.getElementById('photoViewer').style.display = 'flex';
+        }
+        
+        function closePhotoViewer() {
+            document.getElementById('photoViewer').style.display = 'none';
+        }
+        
+        // Confetti
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = ['#ffd700', '#ff69b4', '#8a2be2'][Math.floor(Math.random() * 3)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-20px';
+                    confetti.style.animation = 'fall 3s linear';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+            
+            // Add animation style
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    to {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            console.log('Website loaded! Background images at 95% visibility.');
+        });
+    </script>
+</body>
+</html>
